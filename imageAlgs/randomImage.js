@@ -6,6 +6,11 @@ function random_one_channel(seed, w,h) {
     return [...new Array(h)].map(y => [...new Array(w)].map(x => Math.random()*255));
 }
 
+function random_black_or_white(seed, w,h) {
+    Math.seedrandom(seed);
+    return [...new Array(h)].map(y => [...new Array(w)].map(x => Math.round(Math.random())*255));
+}
+
 function random_three_channel(seed, w,h) {
     Math.seedrandom(seed);
     return [...new Array(h)].map(y => 
@@ -53,6 +58,21 @@ let experiments = [
     },
     function (seed, w,h) {
         let image = random_one_channel(seed, w,h);
+
+        for (let row=0; row<h; ++row) {
+            for (let col=0; col<w; ++col) {
+                if (col > 0) {
+                    image[row][col] = (image[row][col-1] + image[row][col])/2;
+                } else {
+                    image[row][col] = (image[row][h-1] + image[row][col])/2;
+                }
+            }
+        }
+        return image;
+
+    },
+    function (seed, w,h) {
+        let image = random_black_or_white(seed, w,h);
 
         for (let row=0; row<h; ++row) {
             for (let col=0; col<w; ++col) {

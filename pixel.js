@@ -52,6 +52,21 @@ let canvasAPI = (function (canvas) {
 // setInterval( function() {
 //     canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, random_one_channel(null, WIDTH, HEIGHT));
 // }, 70);
+// setInterval( function() {
+//     canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, experiments[1](null, WIDTH, HEIGHT));
+// }, 70);
+// setInterval( function() {
+//     canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, random_black_or_white(null, WIDTH, HEIGHT));
+// }, 70);
+
+// This is a good one
+// setInterval( function() {
+//     canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, experiments[0](null, WIDTH, HEIGHT));
+//     canvasAPI.drawPixelImage(WIDTH/3,HEIGHT/3, WIDTH/3, HEIGHT/3, random_black_or_white(null, WIDTH, HEIGHT));
+// }, 70);
+
+// Also a fun one.
 setInterval( function() {
-    canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, experiments[1](null, WIDTH, HEIGHT));
+    canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, experiments[0](null, WIDTH, HEIGHT));
+    canvasAPI.drawPixelImage(WIDTH*3/7,HEIGHT*3/7, WIDTH/7, HEIGHT/7, random_three_channel(null, WIDTH, HEIGHT));
 }, 70);
