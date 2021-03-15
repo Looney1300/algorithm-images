@@ -1,5 +1,5 @@
-const WIDTH = 3;    // width of canvas in pixels
-const HEIGHT = 1;   // height of canvas in pixels
+const WIDTH = 100;    // width of canvas in pixels
+const HEIGHT = 100;   // height of canvas in pixels
 
 
 document.getElementById('canvas').width = WIDTH;
@@ -43,8 +43,15 @@ let canvasAPI = (function (canvas) {
     
 })(document.getElementById('canvas').getContext('2d'));
 
-canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, random_three_channel('h', WIDTH, HEIGHT));
+
+//canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, random_smooth_one_channel('1', WIDTH, HEIGHT, 0.5));
+//canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, random_one_channel('1', WIDTH, HEIGHT, 0.5));
+//canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, experiments[1]('1', WIDTH, HEIGHT, 0.5));
+
+// Animated random colors
 // setInterval( function() {
-//     canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, random_three_channel(null, WIDTH, HEIGHT));
-// }, 50);
-//canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, random_three_channel('1', WIDTH, HEIGHT));
+//     canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, random_one_channel(null, WIDTH, HEIGHT));
+// }, 70);
+setInterval( function() {
+    canvasAPI.drawPixelImage(0,0, WIDTH, HEIGHT, experiments[1](null, WIDTH, HEIGHT));
+}, 70);
